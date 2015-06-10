@@ -1,0 +1,22 @@
+html, body, #map_canvas, #map_container {
+    width:   1400px;
+    height:  900px;
+    margin:  0 auto;
+    padding: 0;
+}
+.buttons button {
+    background-color: #7bb04f;
+    border-radius: 3px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px;
+    padding: 5px 15px;
+    text-align: center;
+    text-shadow: 1px 1px 0 #6aa54d;
+    transition: all 0.3s ease 0s;
+}
+.buttons button:hover {
+    opacity: 0.6;
+}

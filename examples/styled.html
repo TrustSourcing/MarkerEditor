@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>Marker Editor</title>
+    <link href="common.css" rel="stylesheet" />
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=drawing"></script>
+    <script type="text/javascript" src="../src/jquery.ddslick.js"></script>
+    <script type="text/javascript" src="../src/MarkerEditor.js"></script>
+    <script type="text/javascript" src="../src/markerclusterer_compiled.js"></script>
+
+</head>
+<body onload="$('#map_canvas').markerEditor({
+    zoom: 5,
+    markerEdit: true,
+    useMarkerClustering: true,
+    markersStyles: [
+        '../src/images/marker_icons/0x4D8BC4.png',
+        '../src/images/marker_icons/0x8A5C3B.png',
+        '../src/images/marker_icons/0x64B130.png',
+        '../src/images/marker_icons/0xD35598.png',
+        '../src/images/marker_icons/0xDD541A.png',
+        '../src/images/marker_icons/0xEB008B.png',
+        '../src/images/marker_icons/0xFEC907.png'
+    ],
+    styles: [
+        {featureType:'landscape',stylers:[{saturation:-100},{lightness:-60},{visibility:'on'}]},
+        {featureType:'landscape',elementType:'geometry.stroke',stylers:[{visibility:'off'}]},
+        {featureType:'poi',stylers:[{saturation:-100},{lightness:-50},{visibility:'simplified'}]},
+        {featureType:'road.highway',stylers:[{saturation:-100},{visibility:'simplified'}]},
+        {featureType:'road.arterial',stylers:[{saturation:-100},{lightness:-50},{visibility:'on'}]},
+        {featureType:'road.local',stylers:[{saturation:-100},{lightness:-50},{visibility:'on'}]},
+        {featureType:'transit',stylers:[{saturation:-100},{visibility:'simplified'}]},
+        {featureType:'administrative',stylers:[{visibility:'off'}]},
+        {featureType:'water',elementType:'labels',stylers:[{visibility:'off'}]},
+        {featureType:'water',elementType:'geometry',stylers:[{color: '#162735'}]}
+    ],
+    startMarkers: []
+})">
+    <div class="buttons">
+        <button id="saveMarkers">save markers</button>
+    </div>
+    <ul>
+        <li>In "draw" mode click anywhere to put marker</li>
+        <li>In "hand" mode click on marker to open description</li>
+        <li>In "hand" mode double click on marker to open marker edit window</li>
+        <li>To save changes just close edit window</li>
+        <li>To move marker hold left mouse button and move mouse when edit window is opened</li>
+        <li>To remove marker click remove button when edit window is opened</li>
+    </ul>
+    <div id="map_container">
+        <div id="map_canvas">
+        </div>
+    </div>
+</body>
+<script>
+    $(function(){
+        $('#saveMarkers').on('click', function(){
+            // just for test
+            console.log($('#map_canvas').markerEditor('getMarkers'));
+            // you can save markers in your DB
+        });
+    });
+</script>
+</html>
